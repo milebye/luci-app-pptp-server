@@ -1,5 +1,5 @@
 # luci-app-pptp-server
-LuCI GUI App for configuring PPTP server (OpenWRT)
+LuCI GUI App for configuring PPTP server (LEDE)
 
 # Rationale
 Setting up a VPN on OpenWRT routers can be intimidating to people who are not used to working with 
