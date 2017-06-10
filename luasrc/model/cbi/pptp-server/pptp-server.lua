@@ -18,7 +18,7 @@ remoteip.datatype = "string"
 
 logins = mp:section(TypedSection, "login", translate("PPTP Logins"))
 logins.addremove = true
-logins.anonymouse = true
+logins.anonymous = true
 
 username = logins:option(Value, "username", translate("User name"))
 username.datatype = "string"
