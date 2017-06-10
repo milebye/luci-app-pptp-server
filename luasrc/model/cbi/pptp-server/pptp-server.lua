@@ -19,12 +19,15 @@ remoteip.datatype = "string"
 logins = mp:section(TypedSection, "login", translate("PPTP Logins"))
 logins.addremove = true
 logins.anonymous = true
+logins.template = "cbi/tblsection"
 
 username = logins:option(Value, "username", translate("User name"))
 username.datatype = "string"
 
+
 password = logins:option(Value, "password", translate("Password"))
-password.datatype = "string"
+password.password = true                                            
+password.rmempt = false  
 
 function mp.on_save(self)
     require "luci.model.uci"
@@ -35,10 +38,10 @@ function mp.on_save(self)
 
     luci.model.uci.cursor():foreach('firewall', 'rule',
         function (section)
-			if section._name == 'pptp' then
+			if section._name == 'PPTPD' then
 				have_pptp_rule = true
 			end
-			if section._name == 'gre' then
+			if section._name == 'GRE' then
 				have_gre_rule = true
 			end
         end
