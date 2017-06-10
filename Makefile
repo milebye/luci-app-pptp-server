@@ -10,7 +10,7 @@ PKG_NAME:=luci-app-pptp-server
 
 # Version == major.minor.patch
 # increase on new functionality (minor) or patches (patch)
-PKG_VERSION:=0.1
+PKG_VERSION:=0.2
 
 # Release == build
 # increase on changes of translation files
