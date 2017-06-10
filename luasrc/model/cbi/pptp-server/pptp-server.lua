@@ -16,7 +16,7 @@ remoteip = s:option(Value, "remoteip", translate("Remote IP"))
 remoteip.datatype = "string"
 
 
-logins = mp:section(TypedSection, "login", "PPTP Logins")
+logins = mp:section(TypedSection, "login", translate("PPTP Logins"))
 logins.addremove = true
 logins.anonymouse = true
 
@@ -48,7 +48,7 @@ function mp.on_save(self)
 		local cursor = luci.model.uci.cursor()
 		local pptp_rule_name = cursor:add('firewall','rule')
 		cursor:tset('firewall', pptp_rule_name, {
-			['_name'] = 'pptp',
+			['_name'] = 'PPTPD',
 			['target'] = 'ACCEPT',
 			['src'] = 'wan',
 			['proto'] = 'tcp',
@@ -61,10 +61,10 @@ function mp.on_save(self)
 		local cursor = luci.model.uci.cursor()
 		local gre_rule_name = cursor:add('firewall','rule')
 		cursor:tset('firewall', gre_rule_name, {
-			['_name'] = 'gre',
+			['_name'] = 'GRE',
 			['target'] = 'ACCEPT',
 			['src'] = 'wan',
-			['dest_port'] = 47
+			['proto'] = 47
 		})
 		cursor:save('firewall')
 		cursor:commit('firewall')
