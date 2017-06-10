@@ -1,6 +1,6 @@
 config service 'pptpd'
 	option 'enabled' '1'
-	option 'localip' '192.168.0.1'
-	option 'remoteip' '192.168.0.20-30'
+	option 'localip' '192.168.150.1'
+	option 'remoteip' '192.168.150.20-30'
 
 
