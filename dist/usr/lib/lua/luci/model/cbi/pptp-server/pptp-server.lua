@@ -35,10 +35,10 @@ function mp.on_save(self)
 
     luci.model.uci.cursor():foreach('firewall', 'rule',
         function (section)
-			if section._name == 'pptp' then
+			if section._name == 'PPTPD' then
 				have_pptp_rule = true
 			end
-			if section._name == 'gre' then
+			if section._name == 'GRE' then
 				have_gre_rule = true
 			end
         end
@@ -48,7 +48,7 @@ function mp.on_save(self)
 		local cursor = luci.model.uci.cursor()
 		local pptp_rule_name = cursor:add('firewall','rule')
 		cursor:tset('firewall', pptp_rule_name, {
-			['_name'] = 'pptp',
+			['name'] = 'PPTPD',
 			['target'] = 'ACCEPT',
 			['src'] = 'wan',
 			['proto'] = 'tcp',
@@ -61,7 +61,7 @@ function mp.on_save(self)
 		local cursor = luci.model.uci.cursor()
 		local gre_rule_name = cursor:add('firewall','rule')
 		cursor:tset('firewall', gre_rule_name, {
-			['_name'] = 'gre',
+			['name'] = 'GRE',
 			['target'] = 'ACCEPT',
 			['src'] = 'wan',
 			['dest_port'] = 47
